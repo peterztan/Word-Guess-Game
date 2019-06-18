@@ -1,0 +1,7 @@
+body {
+    background-image: url('https://media.giphy.com/media/13bGgH9VnEDsuA/giphy.gif');
+    background-size: cover;
+    background-repeat: repeat-x;
+    max-width: 100%;
+    height: auto;
+}
