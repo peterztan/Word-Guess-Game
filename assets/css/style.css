@@ -1,7 +1,17 @@
 body {
-    background-image: url('https://media.giphy.com/media/13bGgH9VnEDsuA/giphy.gif');
+    background-image: url('https://media.giphy.com/media/l4hLWy2CT8QaaMtI4/source.gif');
     background-size: cover;
     background-repeat: repeat-x;
     max-width: 100%;
     height: auto;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+
+p {
+    text-align: center;
 }

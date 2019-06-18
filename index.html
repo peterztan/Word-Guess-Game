@@ -9,36 +9,55 @@
         <link rel="stylesheet" href="./assets/css/style.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         
+        <!-- JavaScript link-->
+        <script src="./assets/javascript/game.js"></script>
+
         <title>Word Guess Game</title>
     </head>
     <body>
-        <nav class="navbar sticky-top navbar-light bg-transparent">
+        <nav class="navbar navbar-transparent">
             <div class="container-fluid">
                 <div class="card-body row">
-                    <div class="col-md-12 card-img img-fluid">
-                        <img src="https://media.giphy.com/media/l4hLWy2CT8QaaMtI4/source.gif" alt="background" class="rounded mx-auto d-block">
-                    </div>
-                    <div class="col-md-12 card-img-overlay">
+                    <div class="col-md-12">
                         <img src="./assets/images/title.png" alt="title bar" class="mx-auto d-block">
                     </div>
                 </div>
             </div>
         </nav>
 
-        <div class="jumbotron bg-transparent">
+        <div class="jumbotron-transparent">
             <div class="container">    
                 <div class="container-fluid">
-                    <div class="card-75 shadow-lg p-3 mb-5 bg-transparent rounded">
+                    <div class="card-transparent">
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <img src="" alt="" class="">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                    <img style="width: 200px; height: 200px;" src="./assets/images/lowfiChill.jpg" alt="1st song" class="mx-auto d-block shadow-lg p-3 mb-5 rounded">
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-6 shadow-lg p-3 mb-5 rounded">
                                     <div class="row">
-                                        <div class="col-md-12"></div>
-                                        <div class="col-md-12"></div>
+                                        <div class="col-md-12 card-text">
+                                            <P>PRESS ANY KEY TO GET STARTED</P>
+                                        </div>
+                                        <div id="wins" class="col-md-12">
+                                            <P>WINS</P>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <p>CURRENT Word</p>
+                                        </div>
+                                        <div id="current" class="col-md-12">
+                                            <p>_ _ _ _ _ _ _ _ _ _ _ _</p>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <p>NUMBER OF GUESSES REMINING</p>
+                                        </div>
+                                        <div id="guesses" class="col-md-12">
+                                            <p>15</p>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <p>LETTERS ALREADY GUESSED</p>
+                                        </div>
+                                        <div id="oldLetters" class="col-md-12"></div>
                                     </div>
                                 </div>
                             </div>
