@@ -4,8 +4,21 @@ var songNames =
     [       
             "feeling",
             "perspective",
-            "Pashunfruit",
-            "hammock",
+            "pashunfruit",
+    ];
+
+var songPaths =
+    [
+        "idealismAP",
+        "pashunFruit",
+        "tooGood",
+    ];
+
+var imgPaths =
+    [
+        "idealismAT",
+        "jsanFeeling",
+        "pashunFruit",
     ];
 
 const maxTries = 10;
@@ -17,6 +30,7 @@ var guessesRemaining = 0;
 var isgameStart = false;
 var isgameEnd = false;
 var wins = 0;
+var placeHolder = " " + "_" + " ";
 
 function gameReset() {
     guessesRemaining = maxTries;
@@ -32,7 +46,7 @@ function gameReset() {
     document.getElementById("currentSong").src = "./assets/musics/sampleStart.mp3";
 
     for (var i = 0; i < songNames[currentWord].length; i++) {
-        currentGuess.push("_ ");
+        currentGuess.push(placeHolder);
     }
 
     document.getElementById("pressKeyTryAgain").style.cssText= "display: none";
@@ -47,16 +61,16 @@ function updateDisplay() {
     for (var i = 0; i < currentGuess.length; i++) {
         document.getElementById("current").innerText += currentGuess[i];
    }
-   document.getElementById("guessesRemaining").innerText = guessesRemaining;
-   document.getElementById("triedLetters").innerText = triedLetters;
-   if (guessesRemaining <= 0) {
-        document.getElementById("pressKeyTryAgain").style.cssText = "display:block";
-        isgameEnd = true;
-   }
+    document.getElementById("guessesRemaining").innerText = guessesRemaining;
+    document.getElementById("triedLetters").innerText = triedLetters;
+    if (guessesRemaining <= 0) {
+            document.getElementById("pressKeyTryAgain").style.cssText = "display: none";
+            isgameEnd = true;
+    }
 }
 
 function updateHangmanImage() {
-    document.getElementById("hangmanImage").src = ".././images/hangman/" + (maxTries - guessesRemaining) + ".jpg";
+    document.getElementById("hangmanImage").src = "./assets/images/hangman/" + (maxTries - guessesRemaining) + ".jpg";
 };
 
 document.onkeydown = function(event) {
@@ -84,13 +98,13 @@ function makeGuess (letter) {
 
     updateDisplay();
     checkWin();
-}
+};
 
 function examineGuess(letter) {
     var letterPositions = [];
 
     for (var i = 0; i < songNames[currentWord].length; i++) {
-        if (songNames[currentWord[i]] === letter) {
+        if (songNames[currentWord][i] === letter) {
             letterPositions.push(i);
         }
     }
@@ -103,10 +117,12 @@ function examineGuess(letter) {
             currentGuess[letterPositions[i]] = letter;
         }
     }
-}
+};
 
 function checkWin() {
-    if (currentGuess.indexOf("_") === -1) {
+    if (currentGuess.indexOf(placeHolder) === -1) {
+
+        document.getElementById("pressKeyTryAgain").style.cssText= "display: block";
         wins++;
         isgameEnd = true;
     }
