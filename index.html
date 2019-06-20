@@ -8,9 +8,10 @@
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="./assets/css/style.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        
+  
         <!-- JavaScript link-->
         <script src="./assets/javascript/game.js"></script>
+
 
         <title>Word Guess Game</title>
     </head>
@@ -31,33 +32,35 @@
                     <div class="card-transparent">
                         <div class="card-body">
                             <div class="row">
-                                <div class="col-md-6">
-                                    <img style="width: 200px; height: 200px;" src="./assets/images/lowfiChill.jpg" alt="1st song" class="mx-auto d-block shadow-lg p-3 mb-5 rounded">
+                                <div class="col-md-6 shadow-lg p-3 mb-5 rounded">
+                                    <img id="songImage" style="width: 200px; height: 200px;" src="./assets/images/lowfiChill.jpg" alt="1st song" class="mx-auto d-block">
+                                    <br>
+                                    <audio controls autoplay loop preload="auto" class="mx-auto d-block">
+                                        <source id="currentSong" src="./assets/musics/sampleStart.mp3" type="audio/mpeg">
+                                    </audio>
                                 </div>
                                 <div class="col-md-6 shadow-lg p-3 mb-5 rounded">
                                     <div class="row">
+                                        <div class="col-md-12">
+                                            <h2 id="pressKeyTryAgain">Press Any Key to Try Again!</h2>
+                                            <img id="hangmanImage" src="" alt="" />
+                                        </div>
                                         <div class="col-md-12 card-text">
                                             <P>PRESS ANY KEY TO GET STARTED</P>
                                         </div>
-                                        <div id="wins" class="col-md-12">
-                                            <P>WINS</P>
+                                        <P class="col-md-12 card-text">WINS</P>
+                                        <div id="wins" class="col-md-12 text-center">
+                                            
                                         </div>
-                                        <div class="col-md-12">
-                                            <p>CURRENT Word</p>
+                                        <p class="col-md-12 card-text">CURRENT Word</p>
+                                        <div id="current" class="col-md-12 text-center">
+                                            
                                         </div>
-                                        <div id="current" class="col-md-12">
-                                            <p>_ _ _ _ _ _ _ _ _ _ _ _</p>
+                                        <p class="col-md-12 card-text">NUMBER OF GUESSES REMINING</p>
+                                        <div id="guessesRemaining" class="col-md-12 text-center">
                                         </div>
-                                        <div class="col-md-12">
-                                            <p>NUMBER OF GUESSES REMINING</p>
-                                        </div>
-                                        <div id="guesses" class="col-md-12">
-                                            <p>15</p>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <p>LETTERS ALREADY GUESSED</p>
-                                        </div>
-                                        <div id="oldLetters" class="col-md-12"></div>
+                                        <p class="col-md-12 card-text">LETTERS ALREADY GUESSED</p>
+                                        <div id="triedLetters" class="col-md-12"></div>
                                     </div>
                                 </div>
                             </div>
@@ -68,9 +71,11 @@
         </div>
 
         <!-- Optional JavaScript -->
+
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        
     </body>
 </html>
