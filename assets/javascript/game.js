@@ -63,6 +63,10 @@ function updateDisplay() {
    }
     document.getElementById("guessesRemaining").innerText = guessesRemaining;
     document.getElementById("triedLetters").innerText = triedLetters;
+
+    /*at this junction, the game cannot distinguish a beggining state and an failing state,
+    where each state has the remaining guesses at 0, so the block "pressKeyTryAgain" gets displayed
+    at both stages*/
     if (guessesRemaining <= 0) {
             document.getElementById("pressKeyTryAgain").style.cssText = "display: none";
             isgameEnd = true;
@@ -124,6 +128,10 @@ function checkWin() {
 
         document.getElementById("pressKeyTryAgain").style.cssText= "display: block";
         wins++;
+        /*at the time that the game state updates as the user pushes a button to start the game,
+        the wins variable updates as the beggining state of the game has a placeholder index at position -1*/
         isgameEnd = true;
     }
 }
+
+//could not figure out how to functionally and dynamically construct the image and audio file path//
