@@ -8,7 +8,7 @@
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="./assets/css/style.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  
+
         <!-- JavaScript link-->
         <script src="./assets/javascript/game.js"></script>
 
@@ -27,7 +27,7 @@
         </nav>
 
         <div class="jumbotron-transparent">
-            <div class="container">    
+            <div class="container">
                 <div class="container-fluid">
                     <div class="card-transparent">
                         <div class="card-body">
@@ -39,26 +39,32 @@
                                         <source id="currentSong" src="./assets/musics/sampleStart.mp3" type="audio/mpeg">
                                     </audio>
                                 </div>
+
                                 <div class="col-md-6 shadow-lg p-3 mb-5 rounded">
                                     <div class="row">
                                         <div class="col-md-12">
                                             <h2 id="pressKeyTryAgain">Press Any Key to Try Again!</h2>
                                             <img class="mx-auto d-block" id="hangmanImage" src="" alt="" />
                                         </div>
-                                        <div class="col-md-12 card-text">
-                                            <P>PRESS ANY KEY TO GET STARTED</P>
+                                        <div id="start-game" class="col-md-12 card-text">
+                                            <!-- Note: HTML tag should be lowercase -->
+                                            <p>PRESS ANY KEY TO GET STARTED</p>
                                         </div>
-                                        <P class="col-md-12 card-text">WINS</P>
-                                        <div id="wins" class="col-md-12 text-center">
-                                            
-                                        </div>
+
+                                        <div id="game-status" class="col-md-12 card-text"></div>
+
+                                        <p class="col-md-12 card-text">WINS</p>
+                                        <div id="wins" class="col-md-12 text-center"></div>
+
+                                        <p class="col-md-12 card-text">LOSSES</p>
+                                        <div id="losses" class="col-md-12 text-center"></div>
+
                                         <p class="col-md-12 card-text">CURRENT Word</p>
-                                        <div id="current" class="col-md-12 text-center">
-                                            
-                                        </div>
+                                        <div id="current" class="col-md-12 text-center"></div>
+
                                         <p class="col-md-12 card-text">NUMBER OF GUESSES REMINING</p>
-                                        <div id="guessesRemaining" class="col-md-12 text-center">
-                                        </div>
+                                        <div id="guessesRemaining" class="col-md-12 text-center"></div>
+
                                         <p class="col-md-12 card-text">LETTERS ALREADY GUESSED</p>
                                         <div id="triedLetters" class="col-md-12"></div>
                                     </div>
@@ -67,7 +73,7 @@
                         </div>
                     </div>
                 </div>
-            </div>    
+            </div>
         </div>
 
         <!-- Optional JavaScript -->
@@ -76,6 +82,6 @@
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-        
+
     </body>
 </html>
