@@ -2,9 +2,9 @@
 
 var songNames =
     [
-            "feeling",
-            "perspective",
-            "pashunfruit",
+      "perspective",
+      "pashunfruit",
+      "feeling",
     ];
 
 var songPaths =
@@ -17,40 +17,50 @@ var songPaths =
 var imgPaths =
     [
         "idealismAP",
-        "jsanFeeling",
         "pashunFruit",
+        "jsanFeeling",
     ];
 
 const maxTries = 10;
 
 var triedLetters = [];
-var currentWordIdx;
 var currentWord;
 var currentGuess = [];
 var guessesRemaining = 0;
-var isgameStart = true; // default to game start since this is set on load
+// use it to indicat that is the start of the game since this is set on load
+var isgameStart = true;
 var isgameEnd = false;
 var wins = 0;
 var losses = 0;
 var placeHolder = " _ "; // no need to concatenate here
 
+var songImage = document.getElementById('songImage')
+var audio = document.getElementById('currentSong')
+audio.volume = 0.25;
+
+function setMedia (idx) {
+  var img = './assets/images/' + imgPaths[idx] + '.jpg';
+  var song = './assets/musics/' + songPaths[idx] + '.mp3';
+
+  songImage.src = img;
+
+  audio.pause();
+  audio.setAttribute('src', song);
+  audio.load();
+  audio.play();
+}
+
 function gameReset() {
     guessesRemaining = maxTries;
     isgameStart = false;
 
-    // added minus one, since lenth is the total number of items in the array
-    // eg. length is 3, but your index start on 0, from 0 -> 3 are actually 4 items
-    // so you max random number is 4 which will be and undefined index.
-    currentWordIdx = Math.floor(Math.random() * (songNames.length - 1));
+    var currentWordIdx = Math.floor(Math.random() * (songNames.length));
     currentWord = songNames[currentWordIdx];
-    console.log(currentWordIdx, currentWord);
 
     triedLetters = [];
     currentGuess = [];
 
-    document.getElementById("songImage").src = "./assets/images/lowfiChill.jpg";
     document.getElementById("hangmanImage").src = "";
-    document.getElementById("currentSong").src = "./assets/musics/sampleStart.mp3";
 
     for (var i = 0; i < currentWord.length; i++) {
         currentGuess.push(placeHolder);
@@ -61,6 +71,8 @@ function gameReset() {
     // since there is no parsing involved, but is is just my opinion.
     // document.getElementById("pressKeyTryAgain").style.display = "none";
     document.getElementById("pressKeyTryAgain").style.cssText = "display: none";
+
+    setMedia(currentWordIdx)
 
     updateDisplay();
 };
@@ -146,4 +158,3 @@ function checkStatus() {
     }
 }
 
-//could not figure out how to functionally and dynamically construct the image and audio file path//
