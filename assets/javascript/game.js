@@ -38,6 +38,11 @@ var songImage = document.getElementById('songImage')
 var audio = document.getElementById('currentSong')
 audio.volume = 0.25;
 
+/**
+ * Set image and audio dynamically basesed on the selected random word
+ * @param {int} idx   The index corresponding to the media array element.
+ * @return void
+ */
 function setMedia (idx) {
   var img = './assets/images/' + imgPaths[idx] + '.jpg';
   var song = './assets/musics/' + songPaths[idx] + '.mp3';
