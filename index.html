@@ -9,67 +9,59 @@
         <link rel="stylesheet" href="./assets/css/style.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-        <title>Word Guess Game</title>
+        <title>Summery Hangman</title>
     </head>
     <body>
         <nav class="navbar navbar-transparent">
             <div class="container-fluid">
-                <div class="card-body row">
-                    <div class="col-md-12">
-                        <img src="./assets/images/title.png" alt="title bar" class="mx-auto d-block">
-                    </div>
+                <div class="col-md-12">
+                    <img src="./assets/images/title.png" alt="title bar" class="mx-auto d-block">
                 </div>
             </div>
         </nav>
 
-        <div class="jumbotron-transparent">
-            <div class="container">
-                <div class="container-fluid">
-                    <div class="card-transparent">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-6 shadow-lg p-3 mb-5 rounded">
-                                    <img id="songImage" style="width: 200px; height: 200px;" src="./assets/images/lowfiChill.jpg" alt="1st song" class="mx-auto d-block">
-                                    <br>
+        <div class="container">
+            <div class="row shadow-lg rounded">
+                <div class="col-md-4 p-3 mt-5 mb-5">
+                    <img id="songImage" style="width: 200px; height: 200px;" src="./assets/images/lowfiChill.jpg" alt="1st song" class="mx-auto d-block">
+                    <br>
 
-                                     <!-- add the id to the audio tag with is the actual audio api object -->
-                                    <audio id="currentSong" controls autoplay loop preload="auto" class="mx-auto d-block">
-                                        <source src="./assets/musics/sampleStart.mp3" type="audio/mpeg">
-                                    </audio>
-                                </div>
+                        <!-- add the id to the audio tag with is the actual audio api object -->
+                    <audio id="currentSong" controls autoplay loop preload="auto" class="mx-auto d-block">
+                        <source src="./assets/musics/sampleStart.mp3" type="audio/mpeg">
+                    </audio>
+                </div>
+                
+                <div class="col-md-4 p-3 mt-5 mb-5">
+                    <div class="row">
+                        <div id="game-status" class="col-md-12 card-text"></div>
 
-                                <div class="col-md-6 shadow-lg p-3 mb-5 rounded">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <h2 id="pressKeyTryAgain">Press Any Key to Try Again!</h2>
-                                            <img class="mx-auto d-block" id="hangmanImage" src="" alt="" />
-                                        </div>
-                                        <div id="start-game" class="col-md-12 card-text">
-                                            <!-- Note: HTML tag should be lowercase -->
-                                            <p>PRESS ANY KEY TO GET STARTED</p>
-                                        </div>
-
-                                        <div id="game-status" class="col-md-12 card-text"></div>
-
-                                        <p class="col-md-12 card-text">WINS</p>
-                                        <div id="wins" class="col-md-12 text-center"></div>
-
-                                        <p class="col-md-12 card-text">LOSSES</p>
-                                        <div id="losses" class="col-md-12 text-center"></div>
-
-                                        <p class="col-md-12 card-text">CURRENT Word</p>
-                                        <div id="current" class="col-md-12 text-center"></div>
-
-                                        <p class="col-md-12 card-text">NUMBER OF GUESSES REMINING</p>
-                                        <div id="guessesRemaining" class="col-md-12 text-center"></div>
-
-                                        <p class="col-md-12 card-text">LETTERS ALREADY GUESSED</p>
-                                        <div id="triedLetters" class="col-md-12"></div>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="col-md-12">
+                            <h2 id="pressKeyTryAgain">Press Any Key to Try Again!</h2>
                         </div>
+                        <div id="start-game" class="col-md-12 card-text">
+                            <!-- Note: HTML tag should be lowercase -->
+                            <p>PRESS ANY KEY TO GET STARTED</p>
+                        </div>
+                        <p class="col-md-12 card-text">WINS</p>
+                        <div id="wins" class="col-md-12 text-center"></div>
+
+                        <p class="col-md-12 card-text">LOSSES</p>
+                        <div id="losses" class="col-md-12 text-center"></div>
+
+                        <p class="col-md-12 card-text">CURRENT Word</p>
+                        <div id="current" class="col-md-12 text-center"></div>
+
+                        <p class="col-md-12 card-text">NUMBER OF GUESSES REMINING</p>
+                        <div id="guessesRemaining" class="col-md-12 text-center"></div>
+
+                        <p class="col-md-12 card-text">LETTERS ALREADY GUESSED</p>
+                        <div id="triedLetters" class="col-md-12"></div>
                     </div>
+                </div>
+
+                <div class="col-md-4 p-3 mt-5 mb-5">
+                    <img class="mx-auto d-block" id="hangmanImage" src="" alt="" />
                 </div>
             </div>
         </div>

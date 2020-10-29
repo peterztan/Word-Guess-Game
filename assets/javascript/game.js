@@ -1,20 +1,20 @@
 
 
-var songNames =
+let songNames =
     [
       "perspective",
       "pashunfruit",
       "feeling",
     ];
 
-var songPaths =
+let songPaths =
     [
         "idealismAP",
         "pashunFruit",
         "tooGood",
     ];
 
-var imgPaths =
+let imgPaths =
     [
         "idealismAP",
         "pashunFruit",
@@ -23,19 +23,19 @@ var imgPaths =
 
 const maxTries = 10;
 
-var triedLetters = [];
-var currentWord;
-var currentGuess = [];
-var guessesRemaining = 0;
+let triedLetters = [];
+let currentWord;
+let currentGuess = [];
+let guessesRemaining = 0;
 // use it to indicat that is the start of the game since this is set on load
-var isgameStart = true;
-var isgameEnd = false;
-var wins = 0;
-var losses = 0;
-var placeHolder = " _ "; // no need to concatenate here
+let isgameStart = true;
+let isgameEnd = false;
+let wins = 0;
+let losses = 0;
+let placeHolder = " _ "; // no need to concatenate here
 
-var songImage = document.getElementById('songImage')
-var audio = document.getElementById('currentSong')
+let songImage = document.getElementById('songImage')
+let audio = document.getElementById('currentSong')
 audio.volume = 0.25;
 
 /**
@@ -43,9 +43,9 @@ audio.volume = 0.25;
  * @param {int} idx   The index corresponding to the media array element.
  * @return void
  */
-function setMedia (idx) {
-  var img = './assets/images/' + imgPaths[idx] + '.jpg';
-  var song = './assets/musics/' + songPaths[idx] + '.mp3';
+setMedia = (idx) => {
+  let img = './assets/images/' + imgPaths[idx] + '.jpg';
+  let song = './assets/musics/' + songPaths[idx] + '.mp3';
 
   songImage.src = img;
 
@@ -55,11 +55,12 @@ function setMedia (idx) {
   audio.play();
 }
 
-function gameReset() {
+gameReset = () => {
+
     guessesRemaining = maxTries;
     isgameStart = false;
 
-    var currentWordIdx = Math.floor(Math.random() * (songNames.length));
+    let currentWordIdx = Math.floor(Math.random() * (songNames.length));
     currentWord = songNames[currentWordIdx];
 
     triedLetters = [];
@@ -67,27 +68,28 @@ function gameReset() {
 
     document.getElementById("hangmanImage").src = "";
 
-    for (var i = 0; i < currentWord.length; i++) {
+    for (let i = 0; i < currentWord.length; i++) {
         currentGuess.push(placeHolder);
     }
 
     // cssText set multiple style, but it has to parse a string into styles
-    // if you are updating just one prop, doing it directly should more performant,
     // since there is no parsing involved, but is is just my opinion.
+    // if you are updating just one prop, doing it directly should more performant,
     // document.getElementById("pressKeyTryAgain").style.display = "none";
     document.getElementById("pressKeyTryAgain").style.cssText = "display: none";
 
     setMedia(currentWordIdx)
 
     updateDisplay();
+    updateGameAnnouncement();
 };
 
-function updateDisplay() {
+updateDisplay = () => {
     document.getElementById("wins").innerText = wins;
     document.getElementById("losses").innerText = losses;
     document.getElementById("current").innerText = "";
 
-    for (var i = 0; i < currentGuess.length; i++) {
+    for (let i = 0; i < currentGuess.length; i++) {
       document.getElementById("current").innerText += currentGuess[i];
     }
 
@@ -95,11 +97,15 @@ function updateDisplay() {
     document.getElementById("triedLetters").innerText = triedLetters;
 }
 
-function updateHangmanImage() {
+updateGameAnnouncement = () => {
+    document.getElementById("game-status").innerHTML = "";
+}
+
+updateHangmanImage = () => {
     document.getElementById("hangmanImage").src = "./assets/images/hangman/" + (maxTries - guessesRemaining) + ".jpg";
 };
 
-document.onkeydown = function(event) {
+document.onkeydown = (event) => {
   // use isgameStart to identiry first load... that is the beggining of the game
   if (isgameStart) {
     isgameStart = false
@@ -117,7 +123,7 @@ document.onkeydown = function(event) {
   }
 }
 
-function makeGuess (letter) {
+makeGuess = (letter) => {
     if (guessesRemaining > 0) {
         if (triedLetters.indexOf(letter) === -1) {
             triedLetters.push(letter);
@@ -127,10 +133,10 @@ function makeGuess (letter) {
     updateDisplay();
 };
 
-function examineGuess(letter) {
-    var letterPositions = [];
+examineGuess = (letter) => {
+    let letterPositions = [];
 
-    for (var i = 0; i < currentWord.length; i++) {
+    for (let i = 0; i < currentWord.length; i++) {
         if (currentWord[i] === letter) {
             letterPositions.push(i);
         }
@@ -140,7 +146,7 @@ function examineGuess(letter) {
       guessesRemaining--;
       updateHangmanImage();
     } else {
-      for (var i = 0; i < letterPositions.length; i++) {
+      for (let i = 0; i < letterPositions.length; i++) {
         currentGuess[letterPositions[i]] = letter;
       }
     }
@@ -149,7 +155,7 @@ function examineGuess(letter) {
 };
 
 // check status for both win or lose
-function checkStatus() {
+checkStatus = () => {
     if (currentGuess.indexOf(placeHolder) === -1) {
       isgameEnd = true;
       wins++;
