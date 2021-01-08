@@ -34,3 +34,8 @@ h2 {
     flex-direction: column;
     align-content: space-around;
 }
+
+.container > .row {
+    backdrop-filter: blur(18px);
+    background-color: rgba(80, 215, 95, 0.5);
+}
