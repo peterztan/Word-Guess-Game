@@ -23,11 +23,11 @@
         <div class="container">
             <div class="row shadow-lg rounded">
                 <div class="col-md-4 p-3 mt-5 mb-5">
-                    <img id="songImage" style="width: 200px; height: 200px;" src="./assets/images/lowfiChill.jpg" alt="1st song" class="mx-auto d-block">
+                    <img id="song-image" style="width: 200px; height: 200px;" src="./assets/images/lowfiChill.jpg" alt="1st song" class="mx-auto d-block">
                     <br>
 
                         <!-- add the id to the audio tag with is the actual audio api object -->
-                    <audio id="currentSong" controls autoplay loop preload="auto" class="mx-auto d-block">
+                    <audio id="current-song" controls controlsList="nodownload" autoplay loop preload="auto" class="mx-auto d-block">
                         <source src="./assets/musics/sampleStart.mp3" type="audio/mpeg">
                     </audio>
                 </div>
@@ -37,7 +37,7 @@
                         <div id="game-status" class="col-md-12 card-text"></div>
 
                         <div class="col-md-12">
-                            <h2 id="pressKeyTryAgain">Press Any Key to Try Again!</h2>
+                            <h2 id="try-again">Press Any Key to Try Again!</h2>
                         </div>
                         <div id="start-game" class="col-md-12 card-text">
                             <!-- Note: HTML tag should be lowercase -->
@@ -53,15 +53,15 @@
                         <div id="current" class="col-md-12 text-center"></div>
 
                         <p class="col-md-12 card-text">NUMBER OF GUESSES REMAINING</p>
-                        <div id="guessesRemaining" class="col-md-12 text-center"></div>
+                        <div id="guesses-remaining" class="col-md-12 text-center"></div>
 
                         <p class="col-md-12 card-text">LETTERS ALREADY GUESSED</p>
-                        <div id="triedLetters" class="col-md-12"></div>
+                        <div id="tried-letters" class="col-md-12"></div>
                     </div>
                 </div>
 
                 <div class="col-md-4 p-3 mt-5 mb-5">
-                    <img class="mx-auto d-block" id="hangmanImage" src="" alt="" />
+                    <img class="mx-auto d-block" id="hangman-image" src="" alt="" />
                 </div>
             </div>
         </div>
@@ -75,6 +75,6 @@
 
         <!-- JavaScript link-->
         <!-- Add your js file afer your content to make sure it load after you content -->
-        <script src="./assets/javascript/game.js"></script>
+        <script src="./assets/typescript/built/game.js"></script>
     </body>
 </html>
